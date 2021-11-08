@@ -36,6 +36,12 @@ class AccountsService {
 
     return account;
   }
+
+  async delete(id) {
+    const account = await models.Account.findByPk(id);
+    account.destroy();
+    return { id };
+  }
 }
 
 module.exports = AccountsService;

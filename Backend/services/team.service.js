@@ -17,8 +17,8 @@ class TeamsService {
   async find(id) {
     const team = await models.Team.findByPk(id);
 
-    if (!team == null) {
-      return boom.notFound();
+    if (team == null) {
+      throw boom.notFound();
     }
     return team;
   }
